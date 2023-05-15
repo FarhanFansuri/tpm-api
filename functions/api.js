@@ -55,7 +55,7 @@ mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('Berhasil terhubung ke MongoDB Atlas');
 
-    app.get('/*', (req, res) => {
+    app.get('/', (req, res) => {
         res.send("<h1 style='margin-left:20px'>404 Not Found</h1>");
     });
 
