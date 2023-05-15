@@ -13,7 +13,7 @@ app.get('/data', (req, res) => {
     .then(data => res.json(data))
     .catch(error => {
       console.log('Error getting data:', error);
-      res.status(500).send('Internal Server Error');
+      res.status(500).send(error);
     });
 });
 
