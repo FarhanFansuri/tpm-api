@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs').promises;
-
+const serverless = require('serverless-http')
 const app = express();
 const port = 3000;
 
@@ -26,6 +26,8 @@ function getData() {
     });
 }
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Server running at http://localhost:${port}`);
+// });
+
+module.exports.handler = serverless(app)
