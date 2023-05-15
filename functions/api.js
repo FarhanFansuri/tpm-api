@@ -81,6 +81,7 @@ mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true })
           res.sendStatus(201);
         });
       });
+    module.exports.handler = serverless(app)
     app.listen(port, () => {
       console.log(`Server berjalan di http://localhost:${port}`);
     });
@@ -88,55 +89,3 @@ mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch((err) => {
     console.error('Koneksi MongoDB gagal', err);
   });
-
-// app.use(bodyParser.json());
-
-// const mongoURL = 'mongodb+srv://user-x:RmZNBYRmpa4X4AoV@shared-cluster.otiswnp.mongodb.net/?retryWrites=true&w=majority'; // Ganti dengan URL MongoDB Anda
-// const dbName = 'hotel_database'; // Ganti dengan nama database Anda
-
-// MongoClient.connect(mongoURL).then((client) => {
- 
-//   const db = client.db(dbName);
-
-//   // Tambahkan kode API di sini
-//   app.get('/hotels', (req, res) => {
-//     const collection = db.collection('hotels');
-  
-//     const rs = collection.find({}).toArray((err, result) => {
-//       if (err) {
-//         console.error('Gagal mendapatkan pengguna', err);
-//         res.status(500).send('Terjadi kesalahan server');
-//         return;
-//       }
-//       console.log(result);
-      
-//     });
-//     console.log(rs);
-//     res.send("hello")
-    
-//   });
-  
-//   app.post('/users', (req, res) => {
-//     const collection = db.collection('users');
-//     const newUser = req.body;
-  
-//     collection.insertOne(newUser, (err) => {
-//       if (err) {
-//         console.error('Gagal menambahkan pengguna', err);
-//         res.status(500).send('Terjadi kesalahan server');
-//         return;
-//       }
-  
-//       res.sendStatus(201);
-//     });
-//   });
-  
-
-//   app.listen(port, () => {
-//     console.log(`Server berjalan di http://localhost:${port}`);
-//   });
-// })
-// .catch((err)=>{
-//     console.error('Koneksi MongoDB gagal', err);
-// })
-
