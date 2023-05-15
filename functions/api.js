@@ -4,27 +4,15 @@ const fs = require('fs').promises;
 const serverless = require('serverless-http')
 const app = express();
 const port = 3000;
+const data = require('../data/data.js')
 
 app.use(bodyParser.json());
 
 // Get all data
 app.get('/data', (req, res) => {
-  getData()
-    .then(data => res.json(data))
-    .catch(error => {
-      console.log('Error getting data:', error);
-      res.status(500).send(error);
-    });
+  console.log("hello")
+  res.json(data)
 });
-
-function getData() {
-  return fs.readFile('../data/hotels.JSON', 'utf-8')
-    .then(data => JSON.parse(data))
-    .catch(error => {
-      console.error('Error reading data file:', error);
-      throw error;
-    });
-}
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
