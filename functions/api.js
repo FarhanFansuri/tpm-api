@@ -12,7 +12,7 @@ app.get('/data', (req, res) => {
   getData()
     .then(data => res.json(data))
     .catch(error => {
-      console.error('Error getting data:', error);
+      console.log('Error getting data:', error);
       res.status(500).send('Internal Server Error');
     });
 });
@@ -26,8 +26,8 @@ function getData() {
     });
 }
 
-// app.listen(port, () => {
-//   console.log(`Server running at http://localhost:${port}`);
-// });
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
+});
 
 module.exports.handler = serverless(app)
