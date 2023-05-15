@@ -18,7 +18,7 @@ app.get('/data', (req, res) => {
 });
 
 function getData() {
-  return fs.readFile('../data/hotels.json', 'utf-8')
+  return fs.readFile('./data/hotels.JSON', 'utf-8')
     .then(data => JSON.parse(data))
     .catch(error => {
       console.error('Error reading data file:', error);
