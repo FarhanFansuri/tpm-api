@@ -9,7 +9,7 @@ const data = require('../data/data.js')
 app.use(bodyParser.json());
 
 // Get all data
-app.get('/api/hotels-api/info', (req, res) => {
+app.get('/api/hotels/info', (req, res) => {
   res.json(data)
 });
 
@@ -18,7 +18,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/welcome', (req, res) => {
-  res.send("<h1 style='margin-left:50px; margin-top:40px'>Welcome to my API</h1><p style='margin-left:50px; margin-top:10px; font-size: 20px'>what's your code?<p>")
+  res.send(`
+  <h1 style='margin-left:50px; margin-top:40px'>Welcome to my API</h1>
+  <p style='margin-left:50px; margin-top:10px; font-size: 20px'>what's your code?<p>
+  <h5 style='margin-left:50px; margin-top:10px; font-size: 20px'>GET : /api/hotels/info</h5>
+  `)
 });
 
 app.listen(port, () => {
