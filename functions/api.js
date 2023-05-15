@@ -9,9 +9,16 @@ const data = require('../data/data.js')
 app.use(bodyParser.json());
 
 // Get all data
-app.get('/data', (req, res) => {
-  console.log("hello")
+app.get('/api/hotels-api/info', (req, res) => {
   res.json(data)
+});
+
+app.get('/', (req, res) => {
+   res.redirect('/welcome');
+});
+
+app.get('/welcome', (req, res) => {
+  res.send("<h1 style='margin-left:50px; margin-top:40px'>Welcome to my API</h1><p style='margin-left:50px; margin-top:10px; font-size: 20px'>what's your code?<p>")
 });
 
 app.listen(port, () => {
