@@ -5,12 +5,18 @@ const serverless = require('serverless-http')
 const app = express();
 const port = 3000;
 const data = require('../data/data.js')
+const books = require('../data/books.js')
 
 app.use(bodyParser.json());
 
 // Get all data
 app.get('/api/hotels/info', (req, res) => {
   res.json(data)
+});
+
+//Get all data books
+app.get('/api/v1/amazon/books', (req, res) => {
+  res.json(books)
 });
 
 app.get('/', (req, res) => {
